@@ -1,7 +1,8 @@
 {
   "name": "board",
   "version": "0.0.0",
-  "private": true,
+  "description": "Code for practice web design.",
+  "license": "MIT",
   "scripts": {
     "start": "node ./bin/www"
   },
