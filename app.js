@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); // + static files
 
+// merge complete routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
