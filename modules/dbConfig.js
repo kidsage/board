@@ -1,25 +1,19 @@
 const knex = require('knex');
 require('dotenv').config();
 
-module.exports = {
-    db: knex({
-        client: 'mysql',
-        connection: {
-            host: process.env.HOST,
-            user: process.env.USER,
-            password: process.env.PASSWORD,
-            database: process.env.DATABASE || 'board',
-        },
-        pool: {
-            min: 0,
-            max: 10
-        },
-        log: {
-            warn(msg) { console.warn(msg) },
-            error(msg) { console.error(msg) },
-            deprecate(msg) { console.log(msg) },
-            debug(msg) { console.log(msg) }
-        },
-        debug: true
-    })
-}
+const db = knex({
+  client: 'mysql2',
+  connection: {
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || 3306,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE || 'board',
+  },
+  pool: {
+    min: 0,
+    max: 10,
+  },
+});
+
+module.exports = db;
